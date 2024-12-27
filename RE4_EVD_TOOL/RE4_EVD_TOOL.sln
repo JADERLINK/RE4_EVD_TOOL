@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35425.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RE4_EVD_TOOL", "RE4_EVD_TOOL\RE4_EVD_TOOL.shproj", "{38044825-51C4-4349-BBFF-20D9B31994D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_EVD_TOOL_BASIC_LITTLE_ENDIAN", "RE4_EVD_TOOL_BASIC_LITTLE_ENDIAN\RE4_EVD_TOOL_BASIC_LITTLE_ENDIAN.csproj", "{1D7A8E00-18FD-4905-A705-121B7B4F0B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_EVD_TOOL_BASIC_BIG_ENDIAN", "RE4_EVD_TOOL_BASIC_BIG_ENDIAN\RE4_EVD_TOOL_BASIC_BIG_ENDIAN.csproj", "{404802D6-B40A-4A71-9E47-C0BA4BEEFB8E}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SimpleEndianBinaryIO", "SimpleEndianBinaryIO\SimpleEndianBinaryIO.shproj", "{5DDB0D8F-D1EA-479F-8FAC-BE2B5C6BAB65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_EVD_TOOL_DIFF_LITTLE_ENDIAN", "RE4_EVD_TOOL_DIFF_LITTLE_ENDIAN\RE4_EVD_TOOL_DIFF_LITTLE_ENDIAN.csproj", "{43E52223-52D0-4ABB-8ADE-82D2F9441E4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RE4_EVD_TOOL_DIFF_BIG_ENDIAN", "RE4_EVD_TOOL_DIFF_BIG_ENDIAN\RE4_EVD_TOOL_DIFF_BIG_ENDIAN.csproj", "{FFF374A2-0CDF-4060-8C65-AEB90DF3CA24}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		RE4_EVD_TOOL\RE4_EVD_TOOL.projitems*{1d7a8e00-18fd-4905-a705-121b7b4f0b53}*SharedItemsImports = 4
+		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{1d7a8e00-18fd-4905-a705-121b7b4f0b53}*SharedItemsImports = 4
+		RE4_EVD_TOOL\RE4_EVD_TOOL.projitems*{38044825-51c4-4349-bbff-20d9b31994d4}*SharedItemsImports = 13
+		RE4_EVD_TOOL\RE4_EVD_TOOL.projitems*{404802d6-b40a-4a71-9e47-c0ba4beefb8e}*SharedItemsImports = 4
+		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{404802d6-b40a-4a71-9e47-c0ba4beefb8e}*SharedItemsImports = 4
+		RE4_EVD_TOOL\RE4_EVD_TOOL.projitems*{43e52223-52d0-4abb-8ade-82d2f9441e4f}*SharedItemsImports = 4
+		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{43e52223-52d0-4abb-8ade-82d2f9441e4f}*SharedItemsImports = 4
+		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{5ddb0d8f-d1ea-479f-8fac-be2b5c6bab65}*SharedItemsImports = 13
+		RE4_EVD_TOOL\RE4_EVD_TOOL.projitems*{fff374a2-0cdf-4060-8c65-aeb90df3ca24}*SharedItemsImports = 4
+		SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems*{fff374a2-0cdf-4060-8c65-aeb90df3ca24}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D7A8E00-18FD-4905-A705-121B7B4F0B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D7A8E00-18FD-4905-A705-121B7B4F0B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D7A8E00-18FD-4905-A705-121B7B4F0B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D7A8E00-18FD-4905-A705-121B7B4F0B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404802D6-B40A-4A71-9E47-C0BA4BEEFB8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404802D6-B40A-4A71-9E47-C0BA4BEEFB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404802D6-B40A-4A71-9E47-C0BA4BEEFB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404802D6-B40A-4A71-9E47-C0BA4BEEFB8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43E52223-52D0-4ABB-8ADE-82D2F9441E4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E52223-52D0-4ABB-8ADE-82D2F9441E4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E52223-52D0-4ABB-8ADE-82D2F9441E4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E52223-52D0-4ABB-8ADE-82D2F9441E4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF374A2-0CDF-4060-8C65-AEB90DF3CA24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF374A2-0CDF-4060-8C65-AEB90DF3CA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF374A2-0CDF-4060-8C65-AEB90DF3CA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF374A2-0CDF-4060-8C65-AEB90DF3CA24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7845A437-1056-4FE3-989D-8D5EA23F9628}
+	EndGlobalSection
+EndGlobal
