@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{404802D6-B40A-4A71-9E47-C0BA4BEEFB8E}</ProjectGuid>
+    <ProjectGuid>{36C2BD7D-9D05-4747-9B73-DCDBC555F5DA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RE4_EVD_TOOL_BASIC_BIG_ENDIAN</RootNamespace>
-    <AssemblyName>RE4_EVD_TOOL_BASIC_BIG_ENDIAN</AssemblyName>
+    <RootNamespace>RE4_EVD_INSERT_BIG_ENDIAN</RootNamespace>
+    <AssemblyName>RE4_EVD_INSERT_BIG_ENDIAN</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,7 +54,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <Import Project="..\RE4_EVD_TOOL\RE4_EVD_TOOL.projitems" Label="Shared" />
+  <Import Project="..\RE4_EVD_INSERT\RE4_EVD_INSERT.projitems" Label="Shared" />
   <Import Project="..\SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems" Label="Shared" />
   <Import Project="..\SharedCode\SharedCode.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

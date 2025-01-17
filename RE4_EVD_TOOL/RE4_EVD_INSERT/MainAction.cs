@@ -4,13 +4,13 @@ using System.Text;
 using SimpleEndianBinaryIO;
 using System.IO;
 
-namespace RE4_EVD_TOOL
+namespace RE4_EVD_INSERT
 {
     internal static class MainAction
     {
         public const string Version = "Version 1.1 (2025-01-17)";
 
-        public static void Continue(string[] args, Endianness endianness, bool useDiff)
+        public static void Continue(string[] args, Endianness endianness)
         {
             bool usingBatFile = false;
             int start = 0;
@@ -26,7 +26,7 @@ namespace RE4_EVD_TOOL
                 {
                     try
                     {
-                        Action(args[i], endianness, useDiff);
+                        Action(args[i], endianness);
                     }
                     catch (Exception ex)
                     {
@@ -55,7 +55,7 @@ namespace RE4_EVD_TOOL
             }
         }
 
-        private static void Action(string file, Endianness endianness, bool useDiff)
+        private static void Action(string file, Endianness endianness)
         {
             var fileInfo = new FileInfo(file);
             Console.WriteLine("File: " + fileInfo.Name);
@@ -63,9 +63,9 @@ namespace RE4_EVD_TOOL
 
             if (Extension == ".EVD")
             {
-                Extract.ExtractFile(fileInfo, endianness, useDiff);
+                INSERT_IN_EVD.INSERT_IN_EVD_FILE(fileInfo, endianness);
             }
-            else if (Extension == ".IDXEVD")
+            else if (Extension == ".INSERT_IN_EVD")
             {
                 Repack.RepackFile(fileInfo, endianness);
             }

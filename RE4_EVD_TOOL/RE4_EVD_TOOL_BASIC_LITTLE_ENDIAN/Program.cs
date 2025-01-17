@@ -17,7 +17,7 @@ namespace RE4_EVD_TOOL_BASIC_LITTLE_ENDIAN
             Console.WriteLine("by: JADERLINK");
             Console.WriteLine("youtube.com/@JADERLINK");
             Console.WriteLine("github.com/JADERLINK");
-            Console.WriteLine("Version 1.0 (2024-12-27)");
+            Console.WriteLine(RE4_EVD_TOOL.MainAction.Version);
             Console.WriteLine("");
 
             RE4_EVD_TOOL.MainAction.Continue(args, SimpleEndianBinaryIO.Endianness.LittleEndian, false);

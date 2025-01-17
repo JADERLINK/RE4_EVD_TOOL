@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RE4_EVD_TOOL
+namespace SharedCode
 {
     internal static class Utils
     {

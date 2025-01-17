@@ -3,13 +3,13 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>38044825-51c4-4349-bbff-20d9b31994d4</SharedGUID>
+    <SharedGUID>ba68acb0-738a-4dde-8b43-ebd41c1816df</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>RE4_EVD_BASIC</Import_RootNamespace>
+    <Import_RootNamespace>RE4_EVD_INSERT</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Extract.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)INSERT_IN_EVD.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repack.cs" />
   </ItemGroup>

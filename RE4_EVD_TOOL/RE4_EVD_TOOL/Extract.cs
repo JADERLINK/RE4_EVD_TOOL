@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using System.IO;
 using SimpleEndianBinaryIO;
+using SharedCode;
 
 namespace RE4_EVD_TOOL
 {
@@ -19,7 +20,7 @@ namespace RE4_EVD_TOOL
             uint magic = br.ReadUInt32(Endianness.BigEndian);
             if (magic != 0x6576656E)
             {
-                Console.WriteLine("invalid file!");
+                Console.WriteLine("Invalid file!");
                 br.Close();
                 return;
             }

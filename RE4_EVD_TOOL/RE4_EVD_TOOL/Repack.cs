@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using System.IO;
 using SimpleEndianBinaryIO;
+using SharedCode;
 
 namespace RE4_EVD_TOOL
 {
@@ -31,7 +32,7 @@ namespace RE4_EVD_TOOL
             uint magic = br.ReadUInt32(Endianness.BigEndian);
             if (magic != 0x6576656E)
             {
-                Console.WriteLine("invalid file: " + Path.GetFileName(headerName));
+                Console.WriteLine("Invalid file: " + Path.GetFileName(headerName));
                 br.Close();
                 return;
             }
@@ -46,7 +47,7 @@ namespace RE4_EVD_TOOL
             byte[] Block1 = br.ReadBytes((int)Block1Length);
             br.Close();
 
-            string[] files = loadIdx(fileInfo);
+            string[] files = LoadIdx.LoadIdxevd(fileInfo);
 
             var bw = new EndianBinaryWriter(new FileInfo(outputName).Create(), endianness);
 
@@ -81,11 +82,11 @@ namespace RE4_EVD_TOOL
                 {
                     //verificação de tamanho do arquivo
                     FileInfo info = new FileInfo(filePath);
-                    uint lenght = (uint)info.Length;
-                    uint lines = lenght / 16;
-                    uint rest = lenght % 16;
+                    uint length = (uint)info.Length;
+                    uint lines = length / 16;
+                    uint rest = length % 16;
                     lines += rest != 0 ? 1u : 0u;
-                    uint diff = (lines * 16) - lenght;
+                    uint diff = (lines * 16) - length;
 
                     //escreve no arquivo de destino
                     bw.Position = OffsetToOffset[i];
@@ -113,47 +114,6 @@ namespace RE4_EVD_TOOL
             bw.Close();
 
             Console.WriteLine(filesInserted + "/" + files.Length + " files were inserted.");
-        }
-
-        private static string[] loadIdx(FileInfo fileInfo)
-        {
-            StreamReader idx = fileInfo.OpenText();
-
-            List<string> files = new List<string>();
-            List<string> check = new List<string>();
-
-            int i = 0;
-            string endLine = "";
-            while (endLine != null)
-            {
-                endLine = idx.ReadLine();
-
-                if (endLine != null)
-                {
-                    endLine = endLine.Trim();
-
-                    if (!(endLine.Length == 0
-                        || endLine.StartsWith("#")
-                        || endLine.StartsWith("\\")
-                        || endLine.StartsWith("/")
-                        || endLine.StartsWith(":")
-                        ))
-                    {
-                        string validFile = Utils.ValidFileName(endLine, i);
-                        string toUpper = validFile.ToUpperInvariant();
-                        if (!check.Contains(toUpper))
-                        {
-                            files.Add(validFile);
-                            check.Add(toUpper);
-                            i++;
-                        }
-                    }
-
-                }
-
-            }
-            idx.Close();
-            return files.ToArray();
         }
 
     }

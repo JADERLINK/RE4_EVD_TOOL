@@ -56,5 +56,6 @@
   </ItemGroup>
   <Import Project="..\SimpleEndianBinaryIO\SimpleEndianBinaryIO.projitems" Label="Shared" />
   <Import Project="..\RE4_EVD_TOOL\RE4_EVD_TOOL.projitems" Label="Shared" />
+  <Import Project="..\SharedCode\SharedCode.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
