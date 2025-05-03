@@ -12,6 +12,8 @@ namespace RE4_EVD_TOOL
     {
         public static void RepackFile(FileInfo fileInfo, Endianness endianness)
         {
+            long alignment = endianness == Endianness.BigEndian ? 32 : 16;
+
             var diretory = Path.GetDirectoryName(fileInfo.FullName);
             var name = Path.GetFileNameWithoutExtension(fileInfo.Name);
             var outputName = Path.Combine(diretory, name + ".evd");
@@ -51,14 +53,20 @@ namespace RE4_EVD_TOOL
 
             var bw = new EndianBinaryWriter(new FileInfo(outputName).Create(), endianness);
 
+            uint Block2Offset = Block1Length + 0x50;
+            Block2Offset = (uint)(((Block2Offset + alignment - 1) / alignment) * alignment);
+
+            bw.Position = 0;
             bw.Write(mainHeader);
             bw.Write((uint)0x50);
             bw.Write(Block1Length);
             bw.Write((uint)files.Length);
-            bw.Write((uint)Block1Length + 0x50);
+            bw.Write(Block2Offset);
             bw.Write(Block1);
 
             uint[] OffsetToOffset = new uint[files.Length];
+
+            bw.Position = Block2Offset;
 
             //block2
             for (int i = 0; i < files.Length; i++)
@@ -74,7 +82,7 @@ namespace RE4_EVD_TOOL
 
             // insert files
             int filesInserted = 0;
-            uint nextOffset = (uint)bw.Position;
+            uint nextOffset = (uint)(((bw.Position + alignment - 1) / alignment) * alignment);
             for (int i = 0; i < files.Length; i++)
             {
                 string filePath = Path.Combine(diretory, name, files[i]);
@@ -82,11 +90,7 @@ namespace RE4_EVD_TOOL
                 {
                     //verificação de tamanho do arquivo
                     FileInfo info = new FileInfo(filePath);
-                    uint length = (uint)info.Length;
-                    uint lines = length / 16;
-                    uint rest = length % 16;
-                    lines += rest != 0 ? 1u : 0u;
-                    uint diff = (lines * 16) - length;
+                    uint diff = (uint)((alignment - (info.Length % alignment)) % alignment);
 
                     //escreve no arquivo de destino
                     bw.Position = OffsetToOffset[i];

@@ -12,6 +12,8 @@ namespace RE4_EVD_INSERT
     {
         public static void RepackFile(FileInfo fileInfo, Endianness endianness)
         {
+            long alignment = endianness == Endianness.BigEndian ? 32 : 16;
+
             var diretory = Path.GetDirectoryName(fileInfo.FullName);
             var name = Path.GetFileNameWithoutExtension(fileInfo.Name);
             var EvdName = Path.Combine(diretory, name + ".evd");
@@ -96,14 +98,12 @@ namespace RE4_EVD_INSERT
                     // Verificação de tamanho do arquivo.
                     FileInfo info = new FileInfo(filePath);
                     uint length = (uint)info.Length;
-                    uint lines = length / 16;
-                    uint rest = length % 16;
-                    lines += rest != 0 ? 1u : 0u;
-                    uint diff = (lines * 16) - length;
+                    uint paddedLength = ((length + 15) / 16) * 16;
+                    uint diff = paddedLength - length;
 
                     // Verifica se dá para sobrepor o arquivo ou se tem que colocar no final.
                     bool Overwrite = false;
-                    if (length <= item.Length)
+                    if (paddedLength <= item.Length)
                     {
                         Overwrite = true;
                     }
@@ -114,14 +114,7 @@ namespace RE4_EVD_INSERT
                     }
 
                     // novo offset
-                    long new_OffsetToOffset = bw.Length;
-                    {
-                        uint bw_length = (uint)bw.Length;
-                        uint bw_lines = bw_length / 16;
-                        uint bw_rest = bw_length % 16;
-                        bw_lines += bw_rest != 0 ? 1u : 0u;
-                        new_OffsetToOffset = (bw_lines * 16);
-                    }
+                    long new_OffsetToOffset = ((bw.Length + alignment - 1) / alignment) * alignment;
                     if (Overwrite)
                     {
                         new_OffsetToOffset = item.Offset;

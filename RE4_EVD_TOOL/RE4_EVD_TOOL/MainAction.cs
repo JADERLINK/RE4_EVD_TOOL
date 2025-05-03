@@ -8,7 +8,7 @@ namespace RE4_EVD_TOOL
 {
     internal static class MainAction
     {
-        public const string Version = "Version 1.1 (2025-01-17)";
+        public const string Version = "Version 1.2 (2025-05-03)";
 
         public static void Continue(string[] args, Endianness endianness, bool useDiff)
         {

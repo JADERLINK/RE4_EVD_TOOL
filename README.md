@@ -6,6 +6,10 @@ Extract and repack RE4 EVD files (RE4 2007/PS2/UHD/PS4/NS/GC/WII/X360/PS3)
 Programa destinado a extrair e reempacotar arquivos .EVD
 <br> Ao extrair será gerado um arquivo de extenção .idxevd, ele será usado para o repack.
 
+**update: 1.2**
+<br> Corrigido erro de alinhamento na tool "Big Endian" na qual fazia as texturas(TPL) apresentarem erros nas versões GC/WII.
+<br> Foram feitas melhorias no código.
+
 **update: 1.1**
 <br>Adicionado a tool "RE4_EVD_INSERT", veja a explicação mais abaixo.
 <br>Agora, ao arrastar arquivos sobre o programa, ele vai ficar aberto após extrair/reempacotar.
@@ -71,4 +75,4 @@ Notas: se o arquivo for menor que o original, ele vai sobrepor o arquivo que est
 <br>Nota2: Então tome cuidado, pois você pode estar aumentando o tamanho do EVD indefinitivamente.
 
 **At.te: JADERLINK**
-<br>2025-01-17
+<br>2025-05-03
